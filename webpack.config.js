@@ -16,7 +16,6 @@ module.exports = (env) => {
     const environment = env || 'production';    
     
     return {
-        mode: environment,
         entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'build'),
