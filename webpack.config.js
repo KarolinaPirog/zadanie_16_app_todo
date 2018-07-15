@@ -13,19 +13,14 @@ const plugins = [
 ];
 
 module.exports = (env) => {
-    if (env === 'production') {
-        plugins.push(
-            new OptimizeJsPlugin({
-                sourceMap: false
-            })
-        )
-    }
+    const environment = env || 'production';    
+    
     return {
         mode: environment,
-        entry: './src/app.js',
+        entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: 'app.' + environment + 'bundle.js'
+            filename: 'index.' + environment + 'bundle.js'
         },
         module: {
             rules: [
@@ -48,5 +43,5 @@ module.exports = (env) => {
             ]
         },
         plugins
-    }    
+    }  
 };
